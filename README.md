@@ -33,11 +33,14 @@ pkg update && pkg upgrade
 pkg install python git
 pip install rarfile
 
+git clone https://github.com/whitefacebook/FileCrack.git
+
 Sous Linux :
 
 sudo apt update && sudo apt install python3 python3-pip
 pip3 install rarfile
 
+git clone https://github.com/whitefacebook/FileCrack.git
 
 ▶️ Utilisation
 
