@@ -4,9 +4,8 @@ import time
 import sys
 import zlib
 import random
-import rarfile  # Module pour gérer les fichiers RAR
+import rarfile  
 
-# === Couleurs style Anonymous/Matrix ===
 R = "\033[1;31m"  
 G = "\033[1;32m"  
 Y = "\033[1;33m"  
@@ -16,7 +15,7 @@ C = "\033[1;36m"
 W = "\033[1;37m"  
 RESET = "\033[0m"
 
-# === Effet Matrix pour la bannière ===
+
 def matrix_text(text, delay=0.01):
     for char in text:
         sys.stdout.write(G + char + RESET)
@@ -24,7 +23,7 @@ def matrix_text(text, delay=0.01):
         time.sleep(delay)
     print()
 
-# === Bannière avancée Crack2.0 ===
+
 def banner():
     os.system("clear")
     matrix_text("""
@@ -39,7 +38,7 @@ def banner():
     print(f"{C}Éthique Hacker • Sécurité Offensive • Couleurs Matrix{RESET}\n")
     time.sleep(0.5)
 
-# === Charger les wordlists ===
+
 def load_wordlist(default_path, custom_path=None):
     passwords = []
     if os.path.isfile(default_path):
@@ -52,7 +51,7 @@ def load_wordlist(default_path, custom_path=None):
             passwords += [line.strip() for line in f if line.strip()]
     return list(dict.fromkeys(passwords))
 
-# === Crack ZIP ===
+
 def crack_zip(zip_path, wordlist):
     try:
         zip_file = zipfile.ZipFile(zip_path)
@@ -77,7 +76,7 @@ def crack_zip(zip_path, wordlist):
             pass
     print(f"\n{R}[ECHEC] Aucun mot de passe trouvé.{RESET}")
 
-# === Crack RAR ===
+
 def crack_rar(rar_path, wordlist):
     try:
         rar_file = rarfile.RarFile(rar_path)
